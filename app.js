@@ -1,4 +1,4 @@
-var scores, roundscores, activePlayer, dice;
+var scores, roundscores, activePlayer, dice, gamePlaying;
 
 // initialize the game
 init();
@@ -13,6 +13,9 @@ init();
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
     
+    //using state variable to finish the game
+    if (gamePlaying) {
+        
     // 1. Random number
     dice = Math.floor(Math.random() * 6) + 1;
     console.log('dice');
@@ -33,7 +36,11 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         else {
             nextPlayer();
         }
+        }
 })
+        
+    
+    
 
 
 /* HOLD button ***************************************************************
@@ -42,6 +49,9 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
 document.querySelector('.btn-hold').addEventListener('click', function () {
     
+    //using state variable to finish the game
+    if (gamePlaying) {
+
     // Add current score to global score
     scores[activePlayer] += roundScore;
     console.log('score = ' + scores[activePlayer]);
@@ -53,16 +63,23 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     if (scores[activePlayer] >= 20) {
         document.querySelector('#name-' + activePlayer).textContent = "WINNER!";
         document.querySelector('.dice').style.display = 'none';
-        document.querySelector('.btn-roll').style.display = 'none';
-        document.querySelector('.btn-hold').style.display = 'none';
+        
+        // For w/o using state variables to finish the game
+        // document.querySelector('.btn-roll').style.display = 'none';
+        // document.querySelector('.btn-hold').style.display = 'none';
+        
         document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
         document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+        
+        gamePlaying = false;
     }
     
     else {
     // Next Player
      nextPlayer();
+    }   
     }
+  
     
 /* ********************************************************/
     
@@ -107,7 +124,7 @@ function init() {
     scores = [0,0];
     activePlayer = 0;
     roundScore = 0;
-    
+    gamePlaying = true;
     document.querySelector('.dice').style.display = 'none';
 
     document.getElementById('score-0').textContent = '0';
@@ -121,9 +138,10 @@ function init() {
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
-    
-    document.querySelector('.btn-roll').style.display = 'block';
-    document.querySelector('.btn-hold').style.display = 'block';
+        
+    // For w/o using state variables to finish the game
+    // document.querySelector('.btn-roll').style.display = 'block';
+    // document.querySelector('.btn-hold').style.display = 'block';
 
 }
 
