@@ -43,6 +43,11 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         }
 })
 
+
+/* HOLD button ***************************************************************
+
+****************************************************************************/
+
 document.querySelector('.btn-hold').addEventListener('click', function () {
     
     // Add current score to global score
@@ -52,10 +57,21 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     // Update the UI
     document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
     
+     // Check if player win the game
+    if (scores[activePlayer] >= 20) {
+        document.querySelector('#name-' + activePlayer).textContent = "WINNER!";
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+
+    }
+    
+    else {
     // Next Player
      nextPlayer();
+    }
     
-    // Check if player win the game
+   
     
     
 })
