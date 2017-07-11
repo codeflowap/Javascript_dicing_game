@@ -5,10 +5,18 @@
 
 */
 
-var scores, roundscores, activePlayer, dice, gamePlaying, dice_roll_1;
+var scores, roundscores, activePlayer, dice, gamePlaying, dice_roll_1, score_input;
 
 // initialize the game
 init();
+   // document.querySelector('#fin-score').classList.remove("shadow");
+
+
+
+
+
+
+
 
 //document.getElementById("current-" + activePlayer).textContent = dice;
 // document.getElementById("current-" + activePlayer).innerHTML = '<em>' + dice + '</em>';
@@ -47,7 +55,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
                 diceDOM.src = 'images/dice-6-2.png';
                 dice_roll_1 = 0;
-                setTimeout(nextPlayer,100);
+                setTimeout(nextPlayer,1000);
                 
             }
         } // if (dice === 6)
@@ -171,20 +179,38 @@ function init() {
     // For w/o using state variables to finish the game
     // document.querySelector('.btn-roll').style.display = 'block';
     // document.querySelector('.btn-hold').style.display = 'block';
+    
+    window.onload = setTimeout(function(){ alert("Enter your desired final score to win!"); }, 1000);
+    window.onload = setTimeout(function(){document.querySelector('#fin-score').classList.add("shadow"); }, 1200);
 
+    score_input = document.getElementById('fin-score').value;
+    console.log('score =' + score_input);
+    
+
+    // document.querySelector('#fin-score').style.display = "none";
+
+    
+    // removeShadow();
 }
 
 function addScore() {
     roundScore += dice;
     document.getElementById("current-" + activePlayer).textContent = roundScore;
 }
+    
+function addShadow() {
+    document.querySelector('#fin-score').classList.add("shadow");
+    }
+     
+function removeShadow() {
+    document.querySelector('#fin-score').classList.remove("shadow");
+    }
 
+function showMessage() {
+    
+    alret('you entered the score');
 
-
-
-
-
-
+}
 
 
 
