@@ -186,6 +186,8 @@ function init() {
     // document.querySelector('.btn-roll').style.display = 'block';
     // document.querySelector('.btn-hold').style.display = 'block';
     
+    document.querySelector('#fin-score').classList.remove("shadow");
+
     window.onload = setTimeout(function(){ alert("Enter your desired final score to win!"); }, 500);
     window.onload = setTimeout(function(){document.querySelector('#fin-score').classList.add("shadow"); }, 700);
     
