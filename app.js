@@ -44,6 +44,8 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
             roundScore = 0;
             
+            // toggle between the wrappers by making them active 
+            /*
             if (activePlayer === 0) {
                 document.querySelector('.player-1-panel').classList.remove('active');
                 document.querySelector('.player-0-panel').classList.add('active');
@@ -52,9 +54,12 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             else {
                 document.querySelector('.player-0-panel').classList.remove('active');
                 document.querySelector('.player-1-panel').classList.add('active');
-
-                
             }
+            */
+            
+            // toggle between the wrappers by making them active easier method
+                document.querySelector('.player-0-panel').classList.toggle('active');
+                document.querySelector('.player-1-panel').classList.toggle('active');
 
         }
     
