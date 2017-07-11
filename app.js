@@ -53,6 +53,8 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     if (scores[activePlayer] >= 20) {
         document.querySelector('#name-' + activePlayer).textContent = "WINNER!";
         document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.btn-roll').style.display = 'none';
+        document.querySelector('.btn-hold').style.display = 'none';
         document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
         document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
     }
@@ -116,9 +118,12 @@ function init() {
     document.getElementById('name-1').textContent = "Plater 2";
     document.querySelector('.player-0-panel').classList.remove('winner');
     document.querySelector('.player-1-panel').classList.remove('winner');
-        document.querySelector('.player-0-panel').classList.add('active');
-
-
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
+    document.querySelector('.player-0-panel').classList.add('active');
+    
+    document.querySelector('.btn-roll').style.display = 'block';
+    document.querySelector('.btn-hold').style.display = 'block';
 
 }
 
