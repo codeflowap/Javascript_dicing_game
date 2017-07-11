@@ -39,10 +39,33 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
     }
         else {
+            nextPlayer();
+        }
+})
+
+document.querySelector('.btn-hold').addEventListener('click', function () {
+    
+    // Add current score to global score
+    scores[activePlayer] += roundScore;
+    console.log('score = ' + scores[activePlayer]);
+        
+    // Update the UI
+    document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+    
+    // Next Player
+     nextPlayer();
+    
+    // Check if player win the game
+    
+    
+})
+
+function nextPlayer() {
             // Next player
             // ternary opertor
             activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
             roundScore = 0;
+
             
             // toggle between the wrappers by making them active 
             /*
@@ -57,18 +80,19 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             }
             */
             
+            // Updating UI
+            document.querySelector('#current-0').textContent = '0';
+            document.querySelector('#current-1').textContent = '0';
+
+    
             // toggle between the wrappers by making them active easier method
                 document.querySelector('.player-0-panel').classList.toggle('active');
                 document.querySelector('.player-1-panel').classList.toggle('active');
-
-        }
     
-    
-})
-
-
-
-
+            
+            // hide the dice
+            document.querySelector('.dice').style.display = 'none';
+}
 
 
 
