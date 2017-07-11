@@ -31,13 +31,16 @@
                 </div>
             </div>
                         
+            <div id="scr_input"></div>
+            
             <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
             <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
             
             <img src="images/dice-5.png" alt="Dice" class="dice">
-            <input type="text" placeholder="SCORE (0-100)" id="fin-score" class="final-score" size="15" name="fin-score" >
-            <button onclick="myFunction()" class="btn-submit"><i class="ion-arrow-right-b"></i></button>
+            <input type="text" placeholder="" id="fin-score" class="final-score" size="15" name="fin-score" value="">
+            <button onclick="submitScore()" class="btn-submit" id="btn-fin-score"><i class="ion-arrow-right-b" size="10"></i></button>
+            
 
         </div>
         

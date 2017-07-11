@@ -94,7 +94,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
     document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
     
      // Check if player win the game
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= score_input) {
         document.querySelector('#name-' + activePlayer).textContent = "WINNER!";
         document.querySelector('.dice').style.display = 'none';
         
@@ -176,39 +176,46 @@ function init() {
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
         
+    document.querySelector('#fin-score').style.display = "block";
+    document.querySelector('#btn-fin-score').style.display = "block"; 
+    document.querySelector('#scr_input').style.display = "none";
+    document.getElementById('fin-score').value = '';
+    document.querySelector('#fin-score').placeholder = 'SCORE (2-100)';
+    
     // For w/o using state variables to finish the game
     // document.querySelector('.btn-roll').style.display = 'block';
     // document.querySelector('.btn-hold').style.display = 'block';
     
-    window.onload = setTimeout(function(){ alert("Enter your desired final score to win!"); }, 1000);
-    window.onload = setTimeout(function(){document.querySelector('#fin-score').classList.add("shadow"); }, 1200);
-
-    score_input = document.getElementById('fin-score').value;
-    console.log('score =' + score_input);
+    window.onload = setTimeout(function(){ alert("Enter your desired final score to win!"); }, 500);
+    window.onload = setTimeout(function(){document.querySelector('#fin-score').classList.add("shadow"); }, 700);
     
-
-    // document.querySelector('#fin-score').style.display = "none";
-
-    
-    // removeShadow();
 }
 
 function addScore() {
     roundScore += dice;
     document.getElementById("current-" + activePlayer).textContent = roundScore;
 }
-    
+   
+/*
 function addShadow() {
     document.querySelector('#fin-score').classList.add("shadow");
-    }
+   }
      
 function removeShadow() {
     document.querySelector('#fin-score').classList.remove("shadow");
     }
+*/
 
-function showMessage() {
+function submitScore() {
     
-    alret('you entered the score');
+    score_input = document.getElementById('fin-score').value;
+    console.log('score =' + score_input);
+    
+    document.querySelector('#fin-score').style.display = "none";
+    document.querySelector('#btn-fin-score').style.display = "none";
+    document.querySelector('#scr_input').style.display = "block";
+
+    document.getElementById('scr_input').innerHTML = "TARGET =" + score_input; 
 
 }
 
