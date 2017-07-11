@@ -65,8 +65,6 @@ function nextPlayer() {
             // ternary opertor
             activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
             roundScore = 0;
-
-            
             // toggle between the wrappers by making them active 
             /*
             if (activePlayer === 0) {
@@ -92,6 +90,7 @@ function nextPlayer() {
             
             // hide the dice
             document.querySelector('.dice').style.display = 'none';
+    roundScore = 0;
 }
 
 
