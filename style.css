@@ -70,7 +70,7 @@ i {
 .player-1-panel {
     width: 50%;
     float: left;
-    padding: 100px;
+    padding: 106px;
 }
 
 .player-name {
@@ -86,7 +86,7 @@ i {
 }
 
 /* makes the active column darker */
-.active { background-color: #f7f7f7; }
+.active { background-color: #e5e5e5; }
 .active .player-name { font-weight: 300; }
 
 .active .player-name::after {
@@ -137,4 +137,5 @@ i {
 
 .winner {
     background-color: antiquewhite; 
+    color: red;
 }
